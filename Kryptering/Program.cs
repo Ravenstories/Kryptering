@@ -57,7 +57,7 @@ class Program
     }
 }
 
-//Caeser cipher encrypter. 
+//Caeser cipher encrypter..
 class Encrypter
 {
     public static char C_Cip(char ch, int key)
