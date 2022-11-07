@@ -76,8 +76,8 @@ class Encrypter
             return ch;
         }
 
-        char d = char.IsUpper(ch) ? 'A' : 'a';
-        return (char)((((ch + key) - d) % 26) + d);
+        char single = char.IsUpper(ch) ? 'A' : 'a';
+        return (char)((((ch + key) - single) % 26) + single);
     }
     public static string C_Encip(string input, int key)
     {
