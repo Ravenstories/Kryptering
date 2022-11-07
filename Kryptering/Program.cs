@@ -152,17 +152,43 @@ public class HashAndHmac
         DateTime sha512_s = DateTime.Now;
         TimeSpan sha512_value = sha512_s.Subtract(sha512_t);
 
+        //Convert into ascii
+        byte[] md5_ascii = Encoding.ASCII.GetBytes(Convert.ToBase64String(md5));
+        byte[] sha1_ascii = Encoding.ASCII.GetBytes(Convert.ToBase64String(sha1));
+        byte[] sha256_ascii = Encoding.ASCII.GetBytes(Convert.ToBase64String(sha256));
+        byte[] sha512_ascii = Encoding.ASCII.GetBytes(Convert.ToBase64String(sha512));
+
+        //Convert into Hex
+        byte[] md5_byte = Encoding.UTF8.GetBytes(Convert.ToBase64String(md5));
+        string md5_hex = Convert.ToHexString(md5_byte);
+        byte[] sha1_byte = Encoding.UTF8.GetBytes(Convert.ToBase64String(sha1));
+        string sha1_hex = Convert.ToHexString(sha1_byte);
+        byte[] sha256_byte = Encoding.UTF8.GetBytes(Convert.ToBase64String(sha256));
+        string sha256_hex = Convert.ToHexString(sha256_byte);
+        byte[] sha512_byte = Encoding.UTF8.GetBytes(Convert.ToBase64String(sha512));
+        string sha512_hex = Convert.ToHexString(sha512_byte);
+
         //Write results to console
-        Console.WriteLine("Md5: " + Convert.ToBase64String(md5));
+        Console.WriteLine("Md5 Plaintext: " + Convert.ToBase64String(md5));
+        Console.WriteLine("Md5 ASCII: " + Convert.ToBase64String(md5_ascii));
+        Console.WriteLine("Md5 HEX: " + md5_hex);
         Console.WriteLine("MD5 Resolved Timespan: " + md5_value + "\n");
 
         Console.WriteLine("Sha1: " + Convert.ToBase64String(sha1));
+        Console.WriteLine("Sha1 ASCII: " + Convert.ToBase64String(sha1_ascii));
+        Console.WriteLine("Sha1 HEX: " + sha1_hex);
         Console.WriteLine("SHA1 Resolved Timespan: " + sha1_value + "\n");
 
         Console.WriteLine("Sha256: " + Convert.ToBase64String(sha256));
+        Console.WriteLine("Sha256 ASCII: " + Convert.ToBase64String(sha256_ascii));
+        Console.WriteLine("Sha256 HEX: " + sha256_hex);
+
         Console.WriteLine("SHA256 Resolved Timespan: " + sha256_value + "\n");
 
         Console.WriteLine("Sha512: " + Convert.ToBase64String(sha512));
+        Console.WriteLine("Sha512 ASCII: " + Convert.ToBase64String(sha512_ascii));
+        Console.WriteLine("Sha512 HEX: " + sha512_hex);
+
         Console.WriteLine("SHA512 Resolved Timespan: " + sha512_value + "\n");
 
     }
